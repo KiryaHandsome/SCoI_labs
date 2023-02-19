@@ -7,5 +7,5 @@ from caclulator import calculate
 if __name__ == '__main__':
     say_hello()
     print(calculate(12, 14, 'div'))
-    print(generate_numbers())
-    print(evens(generate_numbers()))
+    numbers = generate_numbers()
+    print(evens(numbers))
