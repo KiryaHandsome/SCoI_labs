@@ -1,11 +1,14 @@
+import constants
+
+
 def calculate(a, b, operation):
-    if operation == 'div':
+    if operation == constants.DIVISION:
         return a / b
-    elif operation == 'mul':
+    elif operation == constants.MULTIPLICATION:
         return a * b
-    elif operation == 'sub':
+    elif operation == constants.SUBTRACTION:
         return a - b
-    elif operation == 'add':
+    elif operation == constants.ADDITION:
         return a + b
     else:
         raise Exception('Sorry, this operation is not supported :(')
