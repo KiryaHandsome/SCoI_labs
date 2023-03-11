@@ -9,6 +9,4 @@ ONE_WORD_ABBREVIATIONS = [
     'apr.', 'jun.', 'jul.', 'aug.', 'sep.', 'oct.', 'nov.', 'dec.', 'mon.', 'tue.', 'wed.', 'thu', 'fri.', 'sat.',
     'sun.']
 
-TWO_WORDS_ABBREVIATIONS = ['e.g.', 'i.e.', 'p.s.']
-
-THREE_WORDS_ABBREVIATIONS = ['v.i.p.', 'p.p.s.']
+TWO_WORDS_ABBREVIATIONS = ['e.g.', 'i.e.', 'p.s.', 'ph.d.']

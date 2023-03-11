@@ -1,6 +1,6 @@
 import re
 from constants import SENTENCE_PATTERN, NON_DECLARATIVE_SENTENCE_PATTERN, WORD_PATTERN, NUMBER_PATTERN, \
-    ONE_WORD_ABBREVIATIONS, TWO_WORDS_ABBREVIATIONS, THREE_WORDS_ABBREVIATIONS
+    ONE_WORD_ABBREVIATIONS, TWO_WORDS_ABBREVIATIONS
 
 
 def count_sentences(text: str):
@@ -11,10 +11,7 @@ def count_sentences(text: str):
         amount -= lower_text.count(abbreviation)
 
     for abbreviation in TWO_WORDS_ABBREVIATIONS:
-        amount -= text.lower().count(abbreviation) * 2
-
-    for abbreviation in THREE_WORDS_ABBREVIATIONS:
-        amount -= text.lower().count(abbreviation) * 3
+        amount -= lower_text.count(abbreviation) * 2
 
     return amount
 
