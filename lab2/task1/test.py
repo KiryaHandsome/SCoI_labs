@@ -54,7 +54,7 @@ class TestGetAverageSentenceLength(unittest.TestCase):
 
     def test_text_with_numbers(self):
         text = 'Oh!!! 4 Heloo aaaa. asd6laa, 777; word?'
-        expected = round(22/ 3, 2)
+        expected = round(22 / 3, 2)
         self.assertEqual(statistic_util.get_avg_sentence_len(text), expected,
                          'Average len with numbers test: result isn\'t ' + str(expected))
 
@@ -76,6 +76,26 @@ class TestAvgWordLength(unittest.TestCase):
         expected = round(26 / 7, 2)
         self.assertEqual(statistic_util.get_avg_word_len(text), expected,
                          'Average len with numbers test: result isn\'t ' + str(expected))
+
+
+class TestGetTopKRepeatedNgram(unittest.TestCase):
+    def test_empty_text(self):
+        expected = []
+        self.assertEqual(statistic_util.get_top_k_repeated_n_grams(''), expected,
+                         'Empty text test: result isn\'t ' + str(expected))
+
+    def test_text_without_repeated_anagrams(self):
+        text = 'Hello, My name is Kiryl. And theres no repeated words.'
+        expected = [('hello my name', 1), ('my name is', 1), ('name is kiryl', 1)]
+        self.assertEqual(statistic_util.get_top_k_repeated_n_grams(text, 3, 3), expected,
+                         'Average len with abbreviations test: result isn\'t ' + str(expected))
+
+    def test_text_with_repeated_sequence(self):
+        text = 'hello its repeated seq some text aaa its repeated seq some text aaa some text aaa'
+        expected = [('some text aaa', 3), ('its repeated seq', 2), ('repeated seq some', 2)]
+        self.assertEqual(statistic_util.get_top_k_repeated_n_grams(text, 3, 3), expected,
+                         'Average len with numbers test: result isn\'t ' + str(expected))
+
 
 if __name__ == '__main__':
     unittest.main()
