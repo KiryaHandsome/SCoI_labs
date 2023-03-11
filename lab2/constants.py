@@ -1,0 +1,6 @@
+SENTENCE_PATTERN = r'[.!\?]+'
+NON_DECLARATIVE_SENTENCE_PATTERN = r'[!\?]+'
+WORD_PATTERN = r'\b[a-zA-Z\d]+\b'
+NUMBER_PATTERN = r'\b\d+\b'
+
+
