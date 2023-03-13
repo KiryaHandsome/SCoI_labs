@@ -2,6 +2,7 @@ import json
 import os
 import re
 
+
 class Container:
     _username: str
     _storage: set[str] = set()
@@ -10,6 +11,7 @@ class Container:
     def __init__(self, username: str):
         self._username = username
         self._filename = f'./data/{username}.json'
+        self.load()
 
     def add(self, key):
         self._storage.add(key)
@@ -23,7 +25,6 @@ class Container:
     def list(self):
         return list(self._storage)
 
-    # TODO: complete method
     def grep(self, regex):
         return list(filter(lambda key: re.match(regex, key), self._storage))
 
@@ -36,5 +37,8 @@ class Container:
         if os.path.exists(self._filename):
             with open(self._filename, 'r') as infile:
                 self._storage = set(json.load(infile))
-        else:
-            raise FileNotFoundError(f'Container for user \'{self._username}\' doesn\'t exist')
+
+    def switch(self, username: str):
+        self._username = username
+        self._filename = f'./data/{username}.json'
+        self.load()
