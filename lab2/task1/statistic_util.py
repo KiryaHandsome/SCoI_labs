@@ -1,6 +1,9 @@
 import re
-from constants import SENTENCE_PATTERN, NON_DECLARATIVE_SENTENCE_PATTERN, WORD_PATTERN, NUMBER_PATTERN, \
-    ONE_WORD_ABBREVIATIONS, TWO_WORDS_ABBREVIATIONS
+from constants import (SENTENCE_PATTERN,
+                       NON_DECLARATIVE_SENTENCE_PATTERN,
+                       WORD_PATTERN, NUMBER_PATTERN,
+                       ONE_WORD_ABBREVIATIONS,
+                       TWO_WORDS_ABBREVIATIONS)
 
 
 def count_sentences(text: str) -> int:
@@ -24,6 +27,7 @@ def get_avg_sentence_len(text: str) -> float:
     nums = re.findall(NUMBER_PATTERN, text)
     words = [word for word in re.findall(WORD_PATTERN, text) if word not in nums]
     words_len = sum(len(word) for word in words)
+
     return round(words_len / count_sentences(text), 2) if count_sentences(text) != 0 else 0
 
 
