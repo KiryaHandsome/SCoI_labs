@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from repair_service.views import home_screen_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', home_screen_view),
 ]
