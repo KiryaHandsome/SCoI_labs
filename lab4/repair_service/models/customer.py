@@ -10,6 +10,7 @@ class Customer(models.Model):
                                  help_text='First and last name of customer')
 
     address = models.CharField(max_length=256, help_text='Full address of customer')
+
     passport_id = models.IntegerField(validators=[MinValueValidator(1)],
                                       help_text='Numerical part of id')
 

@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-    <p>Some paragraph</p>
-    <p>Some paragraph</p>
+    <head>
+        <title>Home page</title>
+        {% if request.user.is_authenticated %}
+            <p>Hello, {{ request.user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+            <p>
+                <a href="{% url 'register' %}">Register</a> |
+                <a href="{% url 'login' %}">Login</a>
+            </p>
+        {% endif %}
+    </head>
+
+
+    <h3>Registered users:</h3>
+    {% for account in accounts %}
+        <br> {{ account }} <br>
+    {% endfor %}
 {% endblock content %}

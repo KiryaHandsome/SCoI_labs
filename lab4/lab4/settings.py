@@ -25,17 +25,22 @@ SECRET_KEY = 'django-insecure-()jbjtz%zmj4^2k2c30tuw9wu6ogbo(j1617t611svm9o)bp@c
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'account.Account'
 # Application definition
 
 INSTALLED_APPS = [
+    # my apps
+    'repair_service.apps.RepairServiceConfig',
+    'account.apps.AccountConfig',
+
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'repair_service.apps.RepairServiceConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -49,7 +54,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lab4.urls'
-
 
 TEMPLATES = [
     {

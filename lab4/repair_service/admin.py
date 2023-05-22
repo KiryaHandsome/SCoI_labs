@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django import forms
 
+from account.models import Account
 from .models import (
     OrderService,
     ServiceTag,
@@ -12,6 +13,7 @@ from .models import (
 admin.site.register(Customer)
 admin.site.register(ServiceTag)
 admin.site.register(Service)
+# admin.site.register(Account)
 
 
 # ability to make orders in admin page

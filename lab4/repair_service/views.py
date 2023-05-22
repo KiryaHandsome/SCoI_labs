@@ -1,9 +1,16 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
+from account.models import Account
 
-# Create your views here.
 
 def home_screen_view(request):
-    data_list = ['hello, world', 'fuck u', 1818, 'AfterNumber']
-    context = {'data_list': data_list}
+    context = {}
+    accounts = Account.objects.all()
+    context['accounts'] = accounts
+
     return render(request, 'home.html', context)
+
+
+def handler404(request, *args, **kwargs):
+    return HttpResponseRedirect('/')
