@@ -1,5 +1,7 @@
-from .models import (OrderService,
-                     ServiceTag,
-                     Customer,
-                     Service,
-                     Order)
+from .models import (
+    OrderService,
+    ServiceTag,
+    Customer,
+    Service,
+    Order
+)

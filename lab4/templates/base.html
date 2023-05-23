@@ -1,8 +1,27 @@
-{% block content %}
+<html lang="en">
 
-{% endblock content %}
+<head>
+    <title>Repair service</title>
+    {% include 'snippets/header.html' %}
+</head>
 
-<footer>
-    <hr>
-    <p>Handsome Repair Service. Developed with Love | 2023 </p>
-</footer>
+
+<body>
+<style>
+    .main {
+        min-height: 100vh;
+        height: 100%;
+    }
+</style>
+<div class="main">
+    {% block content %}
+
+    {% endblock content %}
+
+</div>
+{% include 'snippets/footer.html' %}
+</body>
+</html>
+
+
+

@@ -18,5 +18,7 @@ class Service(models.Model):
 
     service_tags = models.ManyToManyField(ServiceTag)
 
+
+
     def __str__(self):
         return self.name

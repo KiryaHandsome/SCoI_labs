@@ -1,6 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_POST
 
 from account.forms import RegistrationForm, AccountAuthenticationForm
 
@@ -25,7 +24,7 @@ def registration_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('/')
 
 
 def login_view(request):

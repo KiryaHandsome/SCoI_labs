@@ -3,19 +3,17 @@
 {% block content %}
     <head>
         <title>Home page</title>
-        {% if request.user.is_authenticated %}
-            <p>Hello, {{ request.user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
-        {% else %}
-            <p>
-                <a href="{% url 'register' %}">Register</a> |
-                <a href="{% url 'login' %}">Login</a>
-            </p>
-        {% endif %}
+
     </head>
 
+    <div class="container">
+        <div class="d-flex flex-column">
+            <h3>Registered users:</h3>
+            {% for account in accounts %}
+                <br> {{ account }} <br>
+            {% endfor %}
+        </div>
+    </div>
 
-    <h3>Registered users:</h3>
-    {% for account in accounts %}
-        <br> {{ account }} <br>
-    {% endfor %}
+
 {% endblock content %}
