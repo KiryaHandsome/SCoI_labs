@@ -1,26 +1,12 @@
 <html lang="en">
 
-<head>
-    <title>Repair service</title>
-    {% include 'snippets/header.html' %}
-</head>
+{% include 'snippets/header.html' %}
+{% block content %}
 
-
-<body>
-<style>
-    .main {
-        min-height: 100vh;
-        height: 100%;
-    }
-</style>
-<div class="main">
-    {% block content %}
-
-    {% endblock content %}
-
-</div>
+{% endblock content %}
 {% include 'snippets/footer.html' %}
-</body>
+
+
 </html>
 
 

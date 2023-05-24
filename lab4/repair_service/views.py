@@ -18,8 +18,10 @@ def page_not_found_handler(request, *args, **kwargs):
 
 
 def service_list(request):
-    content = Service.objects.all()
-    return render(request, 'repair_service/home.html')
+    services = Service.objects.all()
+
+    return render(request, 'services.html', {'services': services})
+
 
 def edit_service(request):
     pass

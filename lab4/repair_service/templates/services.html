@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .service {
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .service-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .service-title {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .service-description {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .service-tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+
+        .service-price {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .add-to-cart {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+    <head>
+        <title>Home page</title>
+    </head>
+
+    <div class="container">
+        <div class="d-flex flex-column">
+            <h1 class="title">Available services:</h1>
+            <div class="services">
+                {% for service in services %}
+                    <div class="service">
+                        <img src="{% static 'img/img.png' %}" alt=" Service Image" class="service-image">
+                        <h2 class="service-title">{{ service.name }}</h2>
+                        <p class="service-description">{{ service.about }}</p>
+                        <div class="service-tags">
+                            {% for service_tag in service.service_tags.all %}
+                                <span class="tag">{{ service_tag.name }}</span>
+                            {% endfor %}
+                        </div>
+                        <span class="service-price">{{ service.price }}</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock content %}
