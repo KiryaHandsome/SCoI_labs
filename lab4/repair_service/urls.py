@@ -1,7 +1,8 @@
+from django.conf.urls.static import static
 from django.urls import path
 
+from lab4 import settings
 from .views import (
-    page_not_found_handler,
     home_screen_view,
     create_service,
     delete_service,

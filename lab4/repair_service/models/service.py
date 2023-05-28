@@ -17,8 +17,10 @@ class Service(models.Model):
                              help_text='Full description of service')
 
     service_tags = models.ManyToManyField(ServiceTag)
-
-
+    image = models.ImageField(upload_to='service_images/',
+                              help_text='Service image',
+                              blank=True,
+                              null=True)
 
     def __str__(self):
         return self.name

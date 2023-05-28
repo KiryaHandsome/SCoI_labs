@@ -1,58 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'repair_service/snippets/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'account/css/register.css' %}">
+{% endblock %}
 
 {% block content %}
-    <style>
-        .form-signin {
-            width: 100%;
-            max-width: 330px;
-            padding: 15px;
-            margin: auto;
-        }
-
-        .form-signin .form-control {
-            position: relative;
-            box-sizing: border-box;
-            height: auto;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .form-signin .form-control:focus {
-            z-index: 2;
-        }
-
-        .form-signin input[type="email"] {
-            margin-bottom: 10px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-        .form-signin input[type="text"] {
-            margin-bottom: 10px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-        .form-signin input[type="password"] {
-            margin-bottom: -1px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-
-        .h3 {
-            text-align: center;
-        }
-
-        .stretch-btn {
-            width: 100%;
-        }
-
-    </style>
     <form class="form-signin" method="post">{% csrf_token %}
-        <div class="d-flex flex-column pb-3">
-            {#            <img class="img-fluid mx-auto d-block" src="{% static 'codingwithmitch_logo.png' %}"#}
-            {#                 alt="Codignwithmitch logo image" width="72" height="72">#}
-        </div>
         <h1 class="h3 mb-3 font-weight-normal">Register an account</h1>
 
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required
@@ -69,7 +28,7 @@
         {% for field in registration_form %}
             <p>
                 {% for error in field.errors %}
-                    <p style="color: red">{{ error }}</p>
+                    <p class="error-tag">{{ error }}</p>
                 {% endfor %}
             </p>
         {% endfor %}
