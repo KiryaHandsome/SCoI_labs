@@ -5,7 +5,7 @@ from repair_service.models.service_tag import ServiceTag
 
 class Service(models.Model):
     name = models.CharField(max_length=128,
-                            primary_key=True,
+                            unique=True,
                             help_text='Name of service')
 
     price = models.DecimalField(max_digits=10,

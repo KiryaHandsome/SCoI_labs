@@ -29,9 +29,10 @@
                                 {% endfor %}
                             </div>
                             <span class="service-price">{{ service.price }}</span>
-                            {#                            <button class="add-to-cart">Add to Cart</button>#}
+                            {# <button class="add-to-cart">Add to Cart</button>#}
                             {% if request.user.is_admin %}
-                                <button class="delete-service">Delete</button>
+                                <p>ID: {{ service.id }}</p>
+                                <a href="/services/delete/{{ service.id }}/">Delete</a>
                             {% endif %}
                         </div>
                     {% endfor %}

@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from account.models import Account
 from repair_service.forms import ServiceForm
@@ -38,5 +39,7 @@ def create_service(request):
     return render(request, 'repair_service/create.html', {'form': form})
 
 
-def delete_service(request):
-    pass
+def delete_service(request, id):
+    service = Service.objects.get(id=id)
+    service.delete()
+    return render(request, 'repair_service/services.html')
