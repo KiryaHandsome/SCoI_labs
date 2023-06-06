@@ -14,6 +14,8 @@ from pathlib import Path
 
 from django.template.context_processors import media
 
+import order.apps
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,6 +34,8 @@ AUTH_USER_MODEL = 'account.Account'
 
 INSTALLED_APPS = [
     # my apps
+    'cart.apps.CartConfig',
+    'order.apps.OrderConfig',
     'repair_service.apps.RepairServiceConfig',
     'account.apps.AccountConfig',
 
@@ -124,3 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CART_SESSION_ID = 'cart'

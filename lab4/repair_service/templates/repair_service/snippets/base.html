@@ -1,4 +1,5 @@
 {% load static %}
+{% load time_tag %}
 
 <head>
     <link rel="stylesheet" href="{% static 'repair_service/css/snippets/base.css' %}">
@@ -17,6 +18,7 @@
         <nav class="my-2 my-md-0 mr-md-3 ms-auto">
             {% if request.user.is_authenticated %}
                 <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>
+                <a class="p-2 text-dark" href="{% url 'cart:cart_detail' %}">Basket</a>
                 <a class="p-2 text-dark" href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>
@@ -28,12 +30,13 @@
     </div>
 </header>
 <body>
- {% block content %}
- {% endblock %}
+{% block content %}
+{% endblock %}
 <footer style="min-height: 100px;background-color: white; color: black">
     <hr>
     <div class="d-flex flex-row align-items-center footer" style="font-size: 18px">
         <p class="m-auto" style="color: black">Handsome Repair Service. Developed with Love | 2023 </p>
+        <p>{% current_time %}</p>
     </div>
 </footer>
 </body>

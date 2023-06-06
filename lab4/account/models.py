@@ -2,8 +2,6 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
 
-# Create your models here.
-
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
@@ -55,7 +53,7 @@ class Account(AbstractBaseUser):
     def __str__(self):
         return f'{self.email}(\'{self.username}\')'
 
-    # For checking permissions. to keep it simple all admin have ALL permissons
+    # For checking permissions. to keep it simple all admin have ALL permissions
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
