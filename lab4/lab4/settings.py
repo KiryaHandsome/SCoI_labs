@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'repair_service.apps.RepairServiceConfig',
     'account.apps.AccountConfig',
+    'app_statistics.apps.AppStatisticsConfig',
 
     # django apps
     'django.contrib.admin',
@@ -130,7 +131,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CART_SESSION_ID = 'cart'
-
 
 LOGGING = {
     'version': 1,

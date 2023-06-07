@@ -9,5 +9,6 @@ urlpatterns = [
                   path('', include('repair_service.urls')),
                   path('register/', include('account.urls')),
                   path('cart/', include('cart.urls')),
-                  path('order/', include('order.urls'))
+                  path('order/', include('order.urls')),
+                  path('statistics/', include('app_statistics.urls'))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
